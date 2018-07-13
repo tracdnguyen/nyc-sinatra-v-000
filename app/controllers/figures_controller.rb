@@ -17,6 +17,7 @@ class FiguresController < ApplicationController
         id = landmark.gsub("landmark_","").to_i
         @landmarks << Landmark.find(id)
       end
+    end
     if !params[:title][:name].empty?
       @figure.titles << Title.create(name: params["title"]["name"])
     end
