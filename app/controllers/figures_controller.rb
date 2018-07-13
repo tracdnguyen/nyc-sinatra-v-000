@@ -10,7 +10,7 @@ class FiguresController < ApplicationController
   post '/figures' do
     @title_ids = []
     if !params[:title][:name].empty?
-      @title_ids << Title.create(params[:title][:name])
+      @title_ids << Title.create(params[:title])
     end
     if params[:figure][:title_ids] != nil
       params[:figure][:title_ids].each do |title|
