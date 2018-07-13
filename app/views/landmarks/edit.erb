@@ -1,5 +1,5 @@
 <form action="/landmarks/<%@landmark.id%>" method="POST">
-  <p>Name <input type="text" name="landmark[name]" id="name"></p> </br>
+  <p>Name <input type="text" name="landmark[name]" id="name" value="<%landmark.id%>"></p> </br>
   <p>Year Completed<input type="text" name="landmark[year_completed]" id="year_completed" value=<%=@landmark.year_completed.to_s%>></p> </br>
 
 
