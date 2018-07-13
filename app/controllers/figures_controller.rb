@@ -10,10 +10,13 @@ class FiguresController < ApplicationController
   post '/figures' do
     @figure = Figure.create(params["figure"])
     if !params[:landmark][:name].empty?
-      @figure.landmarks << Landmark.find_by(name: params["landmark"]["name"])
       @figure.landmarks << Landmark.create(name: params["landmark"]["name"])
     end
-
+    if !params[:figure][:landmark_ids].empty?
+      params[:figure][:landmark_ids].each do |landmark|
+        id = landmark.gsub("landmark_","").to_i
+        @landmarks << Landmark.find(id)
+      end
     if !params[:title][:name].empty?
       @figure.titles << Title.create(name: params["title"]["name"])
     end
