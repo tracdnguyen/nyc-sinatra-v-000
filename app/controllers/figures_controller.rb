@@ -10,6 +10,7 @@ class FiguresController < ApplicationController
   post '/figures' do
     @figure = Figure.create(params["figure"])
     if !params[:landmark][:name].empty?
+      @figure.landmarks << Landmark.find_by(name: params["landmark"]["name"])
       @figure.landmarks << Landmark.create(name: params["landmark"]["name"])
     end
 
