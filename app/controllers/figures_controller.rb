@@ -13,6 +13,7 @@ class FiguresController < ApplicationController
     if !params[:landmark][:name].empty?
       @landmarks = Landmark.find_or_create_by(:name => params["new_landmark"])
       @figure.landmarks << @landmarks
+      @figure.save
     end
     @titles = []
     if !params[:title][:name].empty?
