@@ -4,7 +4,7 @@
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label>Figure Name:</label>
   <input type="text" name="figure[name]" value="<%figure.name%>"id="figure_name">
-  
+
   <label>Edit Landmarks:</label>
 
   <% Landmark.each do |landmark|%>
@@ -12,7 +12,7 @@
   <%end%>
   <label>Add Landmark:</label
   <input type="text" name="landmark[name]" id="new_landmark">
-  
+
   <label>Edit Titles:</label>
 
   <% Title.each do |title|%>
