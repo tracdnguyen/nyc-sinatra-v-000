@@ -18,9 +18,6 @@ class FiguresController < ApplicationController
         @title_ids << Title.find(id)
       end
     end
-    if !params[:title][:name].empty?
-      @title_ids << Title.create(name: params["title"]["name"])
-    end
 
     @landmark_ids = []
     if !params[:landmark][:name].empty?
