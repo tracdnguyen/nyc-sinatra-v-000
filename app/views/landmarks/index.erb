@@ -2,6 +2,6 @@
 <a href='/landmarks/new'>Create New Landmark</a>
 <ol>
   <% @landmarks.each do |landmark| %>
-    <li><a href="/landmarks/<%=landmark.id%>"><%=landmark.name%><%=landmark.year_completed%></a></li>
+    <li><a href="/landmarks/<%=landmark.id%>"><%=landmark.name%> <%=landmark.year_completed%></a></li>
   <% end %>
   </ol>
