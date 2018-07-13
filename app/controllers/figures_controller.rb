@@ -10,7 +10,7 @@ class FiguresController < ApplicationController
   post '/figures' do
     @title_ids = []
     if !params[:title][:name].empty?
-      @figure.titless << Title.create(name: params["title"]["name"])
+      @figure.titles << Title.create(name: params["title"]["name"])
     end
     if !params[:figure][:title_ids].empty?
       params[:figure][:title_ids].each do |title|
@@ -36,6 +36,7 @@ class FiguresController < ApplicationController
       @figure.titles << Title.create(name: params["title"]["name"])
     end
 
+    @figure = 
     @figure.save
 
     redirect to "/figures/#{@figure.id}"
