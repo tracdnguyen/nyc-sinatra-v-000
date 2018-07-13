@@ -4,18 +4,22 @@
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label>Figure Name:</label>
   <input type="text" name="figure[name]" value="<%figure.name%>"id="figure_name">
+  
   <label>Edit Landmarks:</label>
 
   <% Landmark.each do |landmark|%>
     <input type="checkbox" name="figure[landmark_ids][]" value="<%=landmark.id%>" id="<%=landmark.id%>"><%=landmark.name%></input>
   <%end%>
   <label>Add Landmark:</label
-  <input type="text" name="landmark[name]" id="new_landmark" >
+  <input type="text" name="landmark[name]" id="new_landmark">
+  
   <label>Edit Titles:</label>
 
   <% Title.each do |title|%>
     <input type="checkbox" name="figure[title_ids][]" value="<%=title.id%>" id="<%=title.id%>"><%=title.name%></input>
   <%end%>
+  <label>Add Title:</label
+  <input type="text" name="title[name]" id="new_title">
 
   <input type="submit" value="submit">
 </form>
