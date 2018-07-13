@@ -36,7 +36,7 @@ class FiguresController < ApplicationController
       @titles << Title.create(name: params["title"]["name"])
     end
 
-    @figure =
+    @figure = Figure.find_or_create_by(name: params[:figure][:name])
     @figure.save
 
     redirect to "/figures/#{@figure.id}"
