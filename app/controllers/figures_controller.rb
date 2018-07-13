@@ -11,12 +11,12 @@ class FiguresController < ApplicationController
     @figure = Figure.create(params["figure"])
     @landmarks = []
     if !params[:landmark][:name].empty?
-      @landmarks = Landmark.find_or_create_by(params["new_landmark"])
+      @landmarks = Landmark.find_or_create_by(:name => params["new_landmark"])
       @figure.landmarks << @landmarks
     end
     @titles = []
     if !params[:title][:name].empty?
-      @titles = Title.find_or_create_by(params["new_title"])
+      @titles = Title.find_or_create_by(:name => params["new_title"])
       @figure.titles << @titles
     end
 
