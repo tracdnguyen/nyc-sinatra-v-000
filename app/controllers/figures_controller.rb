@@ -8,6 +8,10 @@ class FiguresController < ApplicationController
     erb :'figures/new'
   end
 
+  get '/figures/:id' do 
+    erb :'figures/show'
+  end
+
   post '/figures' do
     @title_ids = []
     if !params[:title][:name].empty?
