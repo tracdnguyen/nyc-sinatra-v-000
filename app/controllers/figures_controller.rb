@@ -36,7 +36,7 @@ class FiguresController < ApplicationController
       @titles << Title.create(name: params["title"]["name"])
     end
 
-    @figure = Figure.find_by(name: params[:figure][:name])
+    @figure = Figure.find_by(name: params[:figure][:name]) || Figure.create(name: "params[:figure][:name]")
     @figure.landmarks = @landmark_ids
     @figure.titles = @title_ids
     @figure.save
