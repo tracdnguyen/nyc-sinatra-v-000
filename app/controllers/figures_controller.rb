@@ -8,29 +8,38 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-    @landmarks = []
-    if !params[:landmark][:name].empty?
-      @landmarks << Landmark.create(name: params[:landmark][:name])
+    @title_ids = []
+    if !params[:title][:name].empty?
+      @titles << Title.create(name: params["title"]["name"])
     end
-    if params[:figure][:landmark_ids] != nil
+    if !params[:figure][:title_ids].empty?
+      params[:figure][:title_ids].each do |title|
+        id = landmark.gsub("title_","").to_i
+        @title_ids << Title.find(id)
+      end
+    end
+    if !params[:title][:name].empty?
+      @figure.titles << Title.create(name: params["title"]["name"])
+    end
+
+    @landmark_ids = []
+    if !params[:landmark][:name].empty?
+      @landmarks << Landmark.create(name: params["landmark"]["name"])
+    end
+    if !params[:figure][:landmark_ids].empty?
       params[:figure][:landmark_ids].each do |landmark|
         id = landmark.gsub("landmark_","").to_i
-        @landmarks << Landmark.find(id)
+        @landmark_ids << Landmark.find(id)
       end
     end
-    @titles = []
     if !params[:title][:name].empty?
-      @titles << Title.create(params[:title])
+      @titles << Title.create(name: params["title"]["name"])
     end
-    if params[:figure][:title_ids] != nil
-      params[:figure][:title_ids].each do |title|
-        id = title.gsub("title_","").to_i
-        @titles << Title.find(id)
-      end
-    end
+
     @figure = Figure.find_by(name: params[:figure][:name]) || Figure.create(name: "#{params[:figure][:name]}")
-    @figure.landmarks = @landmarks
-    @figure.titles = @titles
+    @figure.landmarks = @landmark_ids
+    @figure.titles = @title_ids
+    @figure.save
 
     redirect to "/figures/#{@figure.id}"
   end
