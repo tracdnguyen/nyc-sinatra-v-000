@@ -21,7 +21,7 @@ class FiguresController < ApplicationController
 
     @landmark_ids = []
     if !params[:landmark][:name].empty?
-      @landmark_ids << Landmark.create(name: params["landmark"]["name"])
+      @landmark_ids << Landmark.create(name: params[:landmark][:name])
     end
     if params[:figure][:landmark_ids] != nil
       params[:figure][:landmark_ids].each do |landmark|
