@@ -14,7 +14,7 @@ class FiguresController < ApplicationController
     end
     if params[:figure][:title_ids] != nil
       params[:figure][:title_ids].each do |title|
-        id = landmark.gsub("title_","").to_i
+        id = title.gsub("title_","").to_i
         @title_ids << Title.find(id)
       end
     end
