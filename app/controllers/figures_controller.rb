@@ -10,11 +10,11 @@ class FiguresController < ApplicationController
   post '/figures' do
     @figure = Figure.create(params["figure"])
     if !params[:landmark][:name].empty?
-      @figure.landmarks << Landmark.create(params["landmark"]["name"])
+      @figure.landmarks << Landmark.create(params["new_landmark"])
     end
 
     if !params[:title][:name].empty?
-      @figure.titles << Title.create(params["title"]["name"])
+      @figure.titles << Title.create(params["new_title"])
     end
 
     @figure.save
