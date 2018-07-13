@@ -1,6 +1,6 @@
 <h1>Create Landmark</h1>
 
-<form action="/landmarks/<%= @landmark.id %>" method="post">
+<form action="/landmarks" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label>Name</label></br>
   <input type="text" id="name" name="landmark[name]" value=<%=@landmark.name%> ><br>
