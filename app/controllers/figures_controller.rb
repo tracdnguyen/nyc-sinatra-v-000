@@ -17,7 +17,7 @@ class FiguresController < ApplicationController
     @titles = []
     if !params[:title][:name].empty?
       @titles = Title.create(params[:title])
-      @figure.titles << Title.create(params[:title])
+      @figure.titles << @titles
     end
 
     @figure.save
