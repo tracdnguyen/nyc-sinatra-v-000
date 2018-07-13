@@ -12,7 +12,7 @@ class FiguresController < ApplicationController
     if !params[:title][:name].empty?
       @titles << Title.create(name: params["title"]["name"])
     end
-    if !params[:figure][:title_ids].empty?
+    if params[:figure][:title_ids] != nil
       params[:figure][:title_ids].each do |title|
         id = landmark.gsub("title_","").to_i
         @title_ids << Title.find(id)
