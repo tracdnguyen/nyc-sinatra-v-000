@@ -38,6 +38,7 @@ class FiguresController < ApplicationController
 
     @figure = Figure.find_or_create_by(name: params[:figure][:name])
     @figure.landmarks = @landmark_ids
+    @figure.titles = @title_ids
     @figure.save
 
     redirect to "/figures/#{@figure.id}"
