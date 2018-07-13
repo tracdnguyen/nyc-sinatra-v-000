@@ -5,9 +5,16 @@
   <label>Figure Name:</label>
   <input type="text" name="figure[name]" id="figure_name">
   <label>Edit Landmarks:</label>
-  
+
   <% Landmark.each do |landmark|%>
     <input type="checkbox" name="figure[landmark_ids][]" value="<%=landmark.id%>" id="<%=landmark.id%>"><%=landmark.name%></input>
   <%end%>
+
+  <label>Edit Titles:</label>
+
+  <% Title.each do |title|%>
+    <input type="checkbox" name="figure[title_ids][]" value="<%=title.id%>" id="<%=title.id%>"><%=title.name%></input>
+  <%end%>
+  
   <input type="submit" value="submit">
 </form>
