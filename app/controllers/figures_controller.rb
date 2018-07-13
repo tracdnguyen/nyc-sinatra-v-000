@@ -31,7 +31,7 @@ class FiguresController < ApplicationController
     @figure = Figure.find_by(name: params[:figure][:name]) || Figure.create(name: "#{params[:figure][:name]}")
     @figure.landmarks = @landmarks
     @figure.titles = @titles
-
+    
     redirect to "/figures/#{@figure.id}"
   end
 
