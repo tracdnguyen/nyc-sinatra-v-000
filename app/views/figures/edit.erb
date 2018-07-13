@@ -5,12 +5,12 @@
   <label>Figure Name:</label>
   <input type="text" name="figure[name]" id="figure_name" value="<%=@figure.name%>"></br></br>
 
-  <label>Edit Landmarks:</label>
+  <label>Edit Landmarks:</label></br>
 
   <% Landmark.all.each do |landmark|%>
     <input type="checkbox" name="figure[landmark_ids][]" value="<%=landmark.id%>" id="<%=landmark.id%>"><%=landmark.name%></input>
   <%end%>
-  <label>Add Landmark:</label
+  <label>Add Landmark:</label>
   <input type="text" name="landmark[name]" id="new_landmark">
 
   <label>Edit Titles:</label>
