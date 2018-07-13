@@ -10,7 +10,7 @@ class FiguresController < ApplicationController
   post '/figures' do
     @title_ids = []
     if !params[:title][:name].empty?
-      @titles << Title.create(name: params["title"]["name"])
+      @title_ids << Title.create(name: params["title"]["name"])
     end
     if params[:figure][:title_ids] != nil
       params[:figure][:title_ids].each do |title|
@@ -19,12 +19,12 @@ class FiguresController < ApplicationController
       end
     end
     if !params[:title][:name].empty?
-      @figure.titles << Title.create(name: params["title"]["name"])
+      @title_ids << Title.create(name: params["title"]["name"])
     end
 
     @landmark_ids = []
     if !params[:landmark][:name].empty?
-      @landmarks << Landmark.create(name: params["landmark"]["name"])
+      @landmark_ids << Landmark.create(name: params["landmark"]["name"])
     end
     if params[:figure][:landmark_ids] != nil
       params[:figure][:landmark_ids].each do |landmark|
@@ -33,7 +33,7 @@ class FiguresController < ApplicationController
       end
     end
     if !params[:title][:name].empty?
-      @titles << Title.create(name: params["title"]["name"])
+      @title_ids << Title.create(name: params["title"]["name"])
     end
 
     @figure = Figure.find_by(name: params[:figure][:name]) || Figure.create(name: "#{params[:figure][:name]}")
