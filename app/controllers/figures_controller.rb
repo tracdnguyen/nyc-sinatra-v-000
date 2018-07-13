@@ -8,7 +8,20 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-    @figure = Figure.create(params["figure"])
+    @title_ids = []
+    if !params[:title][:name].empty?
+      @figure.titless << Title.create(name: params["title"]["name"])
+    end
+    if !params[:figure][:title_ids].empty?
+      params[:figure][:title_ids].each do |title|
+        id = landmark.gsub("title_","").to_i
+        @title_ids << Title.find(id)
+      end
+    end
+    if !params[:title][:name].empty?
+      @figure.titles << Title.create(name: params["title"]["name"])
+    end
+    
     @landmark_ids = []
     if !params[:landmark][:name].empty?
       @figure.landmarks << Landmark.create(name: params["landmark"]["name"])
