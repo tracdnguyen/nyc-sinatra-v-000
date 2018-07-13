@@ -3,5 +3,8 @@
 <form action="/landmarks" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label>Name</label><br>
+  <input type="text" name="landmark[name]">
+  <label>Year Completed</label><br>
+  <input type="text" name="landmark[year_completed]">
   <input type="submit" value="Edit Landmark">
 </form>
