@@ -24,7 +24,7 @@ class LandmarksController < ApplicationController
   end
 
   post '/landmarks/:id' do
-    @landmark = Figure.find(params[:id])
+    @landmark = Landmark.find(params[:id])
     @landmark.update(params[:landmark])
 
     if !params[:title][:name].empty?
