@@ -9,8 +9,14 @@ class LandmarksController < ApplicationController
   end
 
   post '/landmarks' do
-    binding.pry
-    @landmark = Landmark.create(params[:landmark])
+    if !params["landmark"]["name"].empty?
+      @landmark.name = Landmark.create(params[:landmark][:name])
+    end
+
+    if !params["landmark"]["year_completed"].empty?
+      @landmark.year_completed = Landmark.create(params[:landmark][:year_completed])
+    end
+    @landmark.save
     redirect to "/landmarks/#{@landmark.id}"
   end
 end
